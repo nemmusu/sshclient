@@ -48,3 +48,47 @@ ssh.close()
 ## Gestione degli errori
 
 Il metodo `connect` può restituire errori nel caso in cui ci siano problemi con l'autenticazione, con la connessione SSH in sé, o con qualsiasi altra eccezione. In tal caso, restituirà una lista contenente un messaggio di errore.
+
+# Script `client_ssh.py`
+
+## Requisiti
+Prima di eseguire questo script, assicurati di aver installato i seguenti pacchetti python:
+
+- paramiko
+- configparser
+
+Puoi installare questi pacchetti usando pip:
+
+```
+pip install paramiko configparser
+```
+
+## Configurazione
+Per utilizzare questo script, è necessario creare un file di configurazione chiamato `config.ini` nella stessa directory dello script. Il file di configurazione dovrebbe avere il seguente formato:
+
+```
+[SSH_CONFIG]
+hostname = your_hostname
+username = your_username
+password = your_password
+port = your_port
+```
+
+Dove:
+- `your_hostname` è l'indirizzo IP o il nome del host del server al quale vuoi connetterti.
+- `your_username` è il nome utente con cui effettuare l'accesso.
+- `your_password` è la password per l'utente specificato.
+- `your_port` è la porta su cui il server SSH è in ascolto (facoltativo, se non specificato viene utilizzata la porta 22).
+
+## Uso
+Per eseguire lo script, usa il seguente comando:
+
+```
+python client_ssh.py
+```
+
+Dopo aver avviato lo script, verrà stabilita una connessione SSH con il server specificato nel file di configurazione. 
+
+Puoi quindi iniziare a digitare comandi come se fossi connesso direttamente al server tramite SSH. L'output di ciascun comando verrà stampato sulla console.
+
+Per interrompere lo script, usa `Ctrl+C`.
